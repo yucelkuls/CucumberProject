@@ -14,12 +14,10 @@ import org.junit.runner.RunWith;
                 "pretty" //Konsola daha guzel yazdirmaya yarar.
         },
 
-        features = "src/test/resources/features",
-        glue = "stepdefinitions",
-        tags = "@Login",
-        dryRun = false // dryRun = true testi calistirmaz sadece eksik step definitionlari bulur.
+        features = "@target/failedScenarios.txt",
+        glue = "stepdefinitions"
 )
 
-public class Runner {
+public class FailedScenariosRunner {
 
 }

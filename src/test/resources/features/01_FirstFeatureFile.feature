@@ -5,7 +5,7 @@ Feature: Login Test
   Background: User goes to homepage
     Given user goes to homepage
 
-  @PositiveLogin @SecondTag
+  @PositiveLogin @SecondTag @Smoke
   Scenario: Positive login Test
 
     When user enters email
@@ -32,7 +32,7 @@ Feature: Login Test
     Then user validates error message
     And user closes the browser
 
-  @NegativeLoginEmptyPassword @Negative
+  @NegativeLoginEmptyPassword @Negative @Smoke
   Scenario: Negative login Test Empty Password
 
     When user enters email

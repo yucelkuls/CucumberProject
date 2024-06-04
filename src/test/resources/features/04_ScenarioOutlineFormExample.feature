@@ -1,9 +1,9 @@
+@Form
 Feature: Form Test Feature
 
   Scenario Outline: Form Test
-
-    Given user goes to form page
-    When user enters username "<username>"
+    Given user goes to url "https://testpages.eviltester.com/styled/basic-html-form-test.html"
+    When user enters form username "<username>"
     And user enters form password "<password>"
     And user enters form comment "<comment>"
     And user clicks on form submit

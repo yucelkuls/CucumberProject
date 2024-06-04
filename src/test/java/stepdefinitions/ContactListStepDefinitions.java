@@ -10,7 +10,6 @@ import utilities.Driver;
 
 import static org.junit.Assert.assertEquals;
 
-
 public class ContactListStepDefinitions {
 
     CLHomePage clHomePage = new CLHomePage();
@@ -18,46 +17,46 @@ public class ContactListStepDefinitions {
     @Given("user goes to homepage")
     public void user_goes_to_homepage() {
         Driver.getDriver().get(ConfigReader.getProperty("contact_list_url"));
-
     }
+
     @When("user enters email")
     public void user_enters_email() {
+        clHomePage = new CLHomePage(); //StaleElementReferenceException durumunda bu şekilde kullanılabilir.
         clHomePage.email.sendKeys(ConfigReader.getProperty("contact_list_username"));
 
     }
+
     @When("user enters password")
     public void user_enters_password() {
+
         clHomePage.password.sendKeys(ConfigReader.getProperty("contact_list_password"));
 
     }
+
     @When("user clicks on submit")
     public void user_clicks_on_submit() {
-        clHomePage.submit.click();
 
+        clHomePage.submit.click();
     }
+
     @Then("user validates sign in")
     public void user_validates_sign_in() throws InterruptedException {
         Thread.sleep(500);
         String url = Driver.getDriver().getCurrentUrl();
-        assertEquals("https://thinking-tester-contact-list.herokuapp.com/contactList",url);
-
+        assertEquals("https://thinking-tester-contact-list.herokuapp.com/contactList", url);
     }
-    @Then("user closes the browser")
-    public void user_closes_the_browser() {
-        Driver.closeDriver();
 
-    }
+
     @When("user enters wrong email")
     public void user_enters_wrong_email() {
         clHomePage.email.sendKeys("wrongemail@hotmail.com");
-
     }
+
     @Then("user validates error message")
     public void user_validates_error_message() throws InterruptedException {
         Thread.sleep(200);
         assert clHomePage.error.isDisplayed();
     }
-
 
     @And("user enters wrong password")
     public void userEntersWrongPassword() {
@@ -73,4 +72,6 @@ public class ContactListStepDefinitions {
     public void userEntersPassword(String password) {
         clHomePage.password.sendKeys(password);
     }
+
+
 }
