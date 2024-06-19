@@ -31,4 +31,7 @@ public class InputFormPage {
     @FindBy(xpath= "//form[@action='/validate/input-validation']")
     public WebElement hata;
 
+    @FindBy(xpath= "//label[@name='agevalidation']")
+    public WebElement hataAge;
+
 }

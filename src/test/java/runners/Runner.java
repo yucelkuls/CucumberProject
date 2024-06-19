@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features",
         glue = "stepdefinitions",
-        tags = "@AutomationExercise",
+        tags = "@Parallel",
         dryRun = false//'dryRun = true' testi çalıştırmaz, eksik step deinitionları bulur.
 )
 

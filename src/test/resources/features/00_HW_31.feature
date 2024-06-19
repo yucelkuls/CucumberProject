@@ -14,12 +14,42 @@ Feature:Scenario Outline Form Feature
     And user clicks on form gonder
     Then user closes the browser
     Examples:
-      | firstname | lastname     | age | country     | notes           |
-      | John      | van der Rijn | 25  | Netherlands | Hello everyone! |
-      | John      | van der Rijn | 25  | Netherlands | Hello everyone! |
-      | John      | van der Rijn | 25  | Netherlands | Hello everyone! |
-      |           | van der Rijn | 25  | Netherlands | Hello everyone! |
+      | firstname  | lastname     | age | country     | notes           |
+      | John John  | van der Rijn | 25  | Netherlands | Hello everyone! |
+      | John  John | van der Rijn | 25  | Netherlands | Hello everyone! |
+      | John  John | van der Rijn | 25  | Netherlands | Hello everyone! |
 
 
+  @NegativeTests
+  Scenario Outline: Short Surname
+    When user enters form firstname "<firstname>"
+    And user enters form lastname "<lastname>"
+    And user enters form age "<age>"
+    And user selects form country "<country>"
+    And user enters form notes "<notes>"
+    And user clicks on form gonder
+    And user validates inputValidate error message
+    Then user closes the browser
+    Examples:
+      | firstname   | lastname | age | country | notes        |
+      | Abdurrahman | D        | 22  | Mali    | Hello world! |
+      | Abdurrahman | D        | 22  | Mali    | Hello world! |
+      | Abdurrahman | D        | 22  | Mali    | Hello world! |
 
+
+  @NegativeTests
+  Scenario Outline: Empty Age Field
+    When user enters form firstname "<firstname>"
+    And user enters form lastname "<lastname>"
+    And user enters form age "<age>"
+    And user selects form country "<country>"
+    And user enters form notes "<notes>"
+    And user clicks on form gonder
+    And user validates inputValidate age error message
+    Then user closes the browser
+    Examples:
+      | firstname   | lastname   | age | country | notes        |
+      | Abdurrahman | Delidumrul |     | Mali    | Hello world! |
+      | Abdurrahman | Delidumrul |     | Mali    | Hello world! |
+      | Abdurrahman | Delidumrul |     | Mali    | Hello world! |
 

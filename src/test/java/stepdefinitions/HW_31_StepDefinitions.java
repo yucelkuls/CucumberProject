@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.support.ui.Select;
 import pages.InputFormPage;
@@ -37,5 +38,15 @@ Use background and scenario outline
     @When("user clicks on form gonder")
     public void user_clicks_on_form_gonder() {
             inputFormPage.gonder.click();
+    }
+
+    @And("user validates inputValidate error message")
+    public void userValidatesInputValidateErrorMessage() {
+        inputFormPage.hata.isDisplayed();
+    }
+
+    @And("user validates inputValidate age error message")
+    public void userValidatesInputValidateAgeErrorMessage() {
+        inputFormPage.hataAge.isDisplayed();
     }
 }
